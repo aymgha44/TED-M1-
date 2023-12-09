@@ -1,26 +1,26 @@
-﻿using ConsoleApp8;
+﻿using Transport;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-      /* Compte C1 = new Compte();
-        Console.WriteLine(C1.ToString());
-        Compte C2 = new Compte(8000);
-        Console.WriteLine(C2.ToString()); 
-      
-        CompteSimple cs1 = new CompteSimple(100);
-        Console.WriteLine(cs1.ToString());
-        CompteSimple cs2 =new CompteSimple(100,1000);
-        Console.WriteLine(cs2.ToString());*/
+        Cargaison cr = new CargaisonRoutiere(90);
+        cr.Ajouter(new Marchandise(1, 80, 70));
+        cr.Ajouter(new Marchandise(2, 30, 90));
+        cr.Ajouter(new Marchandise(3, 35, 100));
+        cr.afficher();
+        Console.WriteLine("Cout =" +cr.count());
 
-        CompteEpargne ce1 = new CompteEpargne(0.05F,100);
-        ce1.ajouterInterets();
-        Console.WriteLine(ce1.ToString());
-
-
-
-
+        Cargaison ca = new CargaisonAerienne(90);
+        ca.Ajouter(new Marchandise(4, 80, 70));
+        ca.Ajouter(new Marchandise(5, 30, 90));
+        ca.Ajouter(new Marchandise(6, 35, 100));
+        cr.afficher();
+        Console.WriteLine("Cout =" +ca.count());
+        Console.WriteLine("chercher la marchandise num 3");
+        Marchandise m = cr.getMarchandises(3);
+        Console.WriteLine(m);
+        Console.ReadLine();
 
 
     }
